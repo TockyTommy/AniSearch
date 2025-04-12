@@ -25,7 +25,7 @@ def set_background(image_file):
 # Apply background
 set_background("zevcb0355ht81.jpg")
 # MongoDB connection
-MONGO_URI = "mongodb+srv://VincentPhang:PLJ5U3ZnkWR39DHJ@anime-cluster.tgb1j32.mongodb.net/anime_db?retryWrites=true&w=majority"
+MONGO_URI = st.secrets["mongodb"]["uri"]
 
 @st.cache_data
 def load_data():
