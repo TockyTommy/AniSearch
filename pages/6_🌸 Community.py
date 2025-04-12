@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="🌸 Community", layout="wide")
 
 # --- MongoDB setup ---
-client = pymongo.MongoClient("mongodb+srv://VincentPhang:PLJ5U3ZnkWR39DHJ@anime-cluster.tgb1j32.mongodb.net/?retryWrites=true&w=majority")
+client = pymongo.MongoClient("mongodb+srv://streamlit:ligma@anime-cluster.tgb1j32.mongodb.net/?retryWrites=true&w=majority")
 db = client["AnimeDatabase"]
 anime_collection = db["Anime"]
 community_collection = db["CommunitySubmissions"]
