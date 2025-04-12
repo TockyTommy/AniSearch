@@ -4,7 +4,7 @@ from pymongo import MongoClient
 import pandas as pd
 
 # --- MongoDB Setup ---
-client = MongoClient("mongodb+srv://mango:DBSassignment@anime-cluster.tgb1j32.mongodb.net/?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://streamlit:ligma@anime-cluster.tgb1j32.mongodb.net/?retryWrites=true&w=majority")
 db = client["AnimeDatabase"]
 collection = db["Anime"]
 df = pd.DataFrame(collection.find())
