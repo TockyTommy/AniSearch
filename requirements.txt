@@ -4,3 +4,4 @@ pymongo
 plotly
 matplotlib
 wordcloud
+scikit-learn
