@@ -8,7 +8,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 st.set_page_config(page_title="🎯 Describe an Anime", layout="wide")
 
 # MongoDB Atlas connection
-MONGO_URI = "mongodb+srv://VincentPhang:PLJ5U3ZnkWR39DHJ@anime-cluster.tgb1j32.mongodb.net/anime_db?retryWrites=true&w=majority"
+MONGO_URI = "mongodb+srv://streamlit:ligma@anime-cluster.tgb1j32.mongodb.net/?retryWrites=true&w=majority"
 
 @st.cache_data
 def load_data():
