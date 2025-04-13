@@ -1,62 +1,78 @@
 import streamlit as st
 import pandas as pd
-import pymongo
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import pymongo
 
-# Set page config
-st.set_page_config(page_title="🎯 Describe an Anime", layout="wide")
+st.set_page_config(page_title="🎮 Describe an Anime", layout="wide")
 
-# MongoDB Atlas connection
-MONGO_URI = "mongodb+srv://streamlit:ligma@anime-cluster.tgb1j32.mongodb.net/?retryWrites=true&w=majority"
+# MongoDB setup
+MONGO_URI = st.secrets["mongodb"]["uri"]
+client = pymongo.MongoClient(MONGO_URI)
+db = client["AnimeDatabase"]
+collection = db["Anime"]
 
 @st.cache_data
 def load_data():
-    client = pymongo.MongoClient(MONGO_URI)
-    db = client['AnimeDatabase']
-    collection = db['Anime']
     data = list(collection.find())
     df = pd.DataFrame(data)
     if '_id' in df.columns:
         df.drop(columns=['_id'], inplace=True)
-    df = df[df['score'] >= 7.0].reset_index(drop=True)
-    df['synopsis'] = df['synopsis'].fillna('').str.lower()
-    df['tags'] = df['tags'].fillna('')
-    df['full_profile'] = df['tags'] + ' ' + df['synopsis']
+    df = df.dropna(subset=['synopsis', 'tags', 'score'])
     return df
 
 df = load_data()
 
-# App header
-st.title("🕵️‍♂️ Describe an Anime")
-st.write("Type a sentence describing an anime, and we’ll find an anime for you!")
+# --------------------------------------------
+# Sidebar filters
+# --------------------------------------------
+st.sidebar.header("🔍 Filters")
 
-# User description input
-user_description = st.text_area("Describe the anime here:", placeholder="e.g. A teenager finds a mysterious notebook that can kill people")
+safe_search = st.sidebar.checkbox("Safe Search (Hide mature content)", value=True)
+min_score = st.sidebar.slider("Minimum Score", min_value=0.0, max_value=10.0, value=7.0, step=0.1)
 
-# Recommend button
-if st.button("Find Matching Anime") and user_description.strip():
-    user_profile = user_description.lower()
-    user_df = pd.DataFrame({'full_profile': [user_profile]})
-    combined_df = pd.concat([df[['name', 'full_profile']], user_df], ignore_index=True)
+# Apply safe search filter
+if safe_search:
+    mature_keywords = ['hentai', 'ecchi', 'erotica']
+    df = df[~df['genres'].str.lower().fillna('').str.contains('|'.join(mature_keywords))]
+    df = df[~df['tags'].str.lower().fillna('').str.contains('|'.join(mature_keywords))]
 
-    # TF-IDF & similarity
-    vectorizer = TfidfVectorizer(stop_words='english')
-    tfidf_matrix = vectorizer.fit_transform(combined_df['full_profile'])
-    similarities = cosine_similarity(tfidf_matrix[-1], tfidf_matrix[:-1])
-    top_indices = similarities[0].argsort()[-5:][::-1]
-    matches = df.iloc[top_indices][['name', 'score', 'genres', 'synopsis', 'image_url', 'anime_url']]
+# Apply score filter
+df = df[df['score'] >= min_score].reset_index(drop=True)
 
-    # Display matches
-    st.subheader("🎬 Anime That Match Your Description:")
-    for _, anime in matches.iterrows():
-        st.markdown(f"### 🎞 {anime['name']} (Score: {anime['score']})")
+# --------------------------------------------
+# Main Page Content
+# --------------------------------------------
+st.title("🎮 Describe an Anime")
+st.markdown("Describe the kind of anime you're interested in, and we'll recommend titles that match your description!")
 
-        # Show image if available
-        if pd.notnull(anime.get("image_url", "")):
-            st.image(anime['image_url'], width=200)
+user_input = st.text_area("Enter a short description of an anime you'd like to watch (e.g. time travel, fantasy war, idol girl with dark secrets)", height=150)
 
-        st.markdown(f"**Genres:** {anime.get('genres', 'N/A')}")
-        st.markdown(f"**Synopsis:** {anime.get('synopsis', 'No synopsis available')[:400]}...")
-        st.markdown(f"**More Info:** [MyAnimeList Page]({anime.get('anime_url', '#')})")
-        st.markdown("---")
+if st.button("Recommend Anime"):
+    if user_input.strip() == "":
+        st.warning("Please enter a description before generating recommendations.")
+    elif df.empty:
+        st.error("No anime available after applying filters. Try adjusting them.")
+    else:
+        temp_df = df.copy()
+        temp_df.loc[len(temp_df)] = {'synopsis': user_input, 'tags': '', 'score': 0}
+
+        vectorizer = TfidfVectorizer(stop_words="english")
+        tfidf_matrix = vectorizer.fit_transform(temp_df["synopsis"])
+
+        cosine_sim = cosine_similarity(tfidf_matrix[-1], tfidf_matrix[:-1])
+        similarity_scores = cosine_sim.flatten()
+
+        top_indices = similarity_scores.argsort()[-5:][::-1]
+        recommendations = df.iloc[top_indices]
+
+        st.subheader("🎯 Recommended Anime")
+        for idx, row in recommendations.iterrows():
+            st.markdown(f"### {row['name']}")
+            st.markdown(f"**Score:** {row['score']}")
+            st.markdown(f"**Genres:** {row['genres']}")
+            st.markdown(f"**Tags:** {row['tags']}")
+            st.markdown(f"**Synopsis:** {row['synopsis']}")
+            if pd.notna(row.get('image_url', None)):
+                st.image(row['image_url'], use_column_width=False, width=250)
+            st.markdown("---")
