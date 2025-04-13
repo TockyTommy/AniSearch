@@ -53,17 +53,20 @@ def load_data():
 df = load_data()
 
 # ----------------- MAIN PAGE CONTENT ----------------- #
-
 st.markdown("""
-<div style="
+<style>
+.intro-box {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 1.5rem;
     border-radius: 10px;
     color: white;
     line-height: 1.6;
     font-size: 18px;
-">
-    <h1 style='margin-top: 0;'>📚 AniSearch Database</h1>
+}
+</style>
+
+<div class="intro-box">
+    <h1>📚 AniSearch Database</h1>
     <p>Welcome to the AniSearch Database Web App!</p>
     <p>Built by Anime lovers for anime lovers, this database allows users to explore, search, and receive recommendations based on anime content.<br>
     Try out our fun activities and discover potential anime to watch!</p>
