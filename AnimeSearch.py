@@ -100,7 +100,7 @@ st.components.v1.html("""
         <p>This database is also not fully updated with the latest anime released. The cutoff period is Winter 2025.</p>
         <p>This database only displays the top 15,000 anime listed on MyAnimeList. Anime ranked 15,001 and below are not listed here.</p>
     </div>
-""", height=1900)
+""", height=2500)
 
 st.divider()
 
