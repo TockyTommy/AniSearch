@@ -82,6 +82,14 @@ st.components.v1.html("""
         </div>
 
         <p>What makes anime particularly appealing is its ability to tackle a wide range of themes — from lighthearted adventures and romantic comedies to philosophical dramas, science fiction epics, psychological thrillers, and gritty tales of war and survival. Some anime are aimed at children, while others are crafted specifically for teenagers or adults, making it an incredibly versatile form of media that caters to various age groups and interests.</p>
+        <p>Visually, anime is known for its bold character designs, expressive facial features, vibrant color palettes, and dynamic action sequences. Often, a great deal of attention is given to emotional expression, cinematic composition, and symbolic imagery — elements that help deliver deeper meaning or emotional weight to the story.</p>
+        <div style="margin-top: 2rem;">
+            <img src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/04/oshi-no-oko.jpg?q=50&fit=crop&w=1140&h=&dpr=1.5"
+                 width="700px"
+                 style="border-radius: 8px;">
+            <p style="margin-top: 0.5rem;"><b>Source:</b> <a href="https://www.cbr.com/oshi-no-ko-anime-facts/" style="color: lightblue;" target="_blank">CBR - Oshi no Ko</a></p>
+        </div>
+
         
         <h3 style="margin-top: 2rem;">⚠️ Disclaimer</h3>
         <p>We do not own any of the data presented here. The dataset used in this application was obtained from:</p>
@@ -92,7 +100,7 @@ st.components.v1.html("""
         <p>This database is also not fully updated with the latest anime released. The cutoff period is Winter 2025.</p>
         <p>This database only displays the top 15,000 anime listed on MyAnimeList. Anime ranked 15,001 and below are not listed here.</p>
     </div>
-""", height=1200)
+""", height=1600)
 
 st.divider()
 
