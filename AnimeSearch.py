@@ -6,6 +6,12 @@ import base64
 # Page setup
 st.set_page_config(page_title="Anime Database", layout="wide")
 
+st.image(
+    "https://cdn.discordapp.com/attachments/1256945378562019360/1360866667651006474/AnineSearch_Banner.png?ex=67fcad59&is=67fb5bd9&hm=61d776d38d2dfa7edd1336addba81d5a109e0cfd4ebcac32b12819befab521b2&",
+    caption="AniSearch Banner",
+    use_container_width=True
+)
+
 st.markdown("""
 <style>
 /* Full-page dark transparent overlay */
