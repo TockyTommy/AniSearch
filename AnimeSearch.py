@@ -76,22 +76,22 @@ st.components.v1.html("""
         <h2>🤔 What is Anime?</h2>
         <p><b>Anime</b> refers to a style of animation originating from Japan, characterized by colorful graphics, fantastical themes, and vibrant characters.
         It spans a wide range of genres, from action and adventure to romance, horror, and slice-of-life.</p>
+
+        <div style="margin-top: 2rem;">
+            <img src="https://4kwallpapers.com/images/walls/thumbs_3t/15604.jpg" width="700px" style="border-radius: 8px;">
+            <p style="margin-top: 0.5rem;"><b>Source:</b> <a href="https://4kwallpapers.com/anime/anime-girl-15604.html" style="color: lightblue;" target="_blank">4KWallpapers - Anime Girl</a></p>
+        </div>
+
+        <h3 style="margin-top: 2rem;">⚠️ Disclaimer</h3>
+        <p>We do not own any of the data presented here. The dataset used in this application was obtained from:</p>
+        <ul>
+            <li><a href="https://www.kaggle.com/datasets/quanthan/top-15000-ranked-anime-dataset-update-to-32025" style="color: lightblue;" target="_blank">Kaggle: Top 15000 Ranked Anime Dataset</a></li>
+            <li>Metadata originates from <a href="https://myanimelist.net/" style="color: lightblue;" target="_blank">MyAnimeList</a>, a widely-used anime catalog and community platform.</li>
+        </ul>
+        <p>This database is also not fully updated with the latest anime released. The cutoff period is Winter 2025.</p>
+        <p>This database only displays the top 15,000 anime listed on MyAnimeList. Anime ranked 15,001 and below are not listed here.</p>
     </div>
-""", height=400)
-
-
-st.image("anime-girl-3840x2160-15604.jpg", width=700)
-st.markdown("**Source:** [4KWallpapers - Anime Girl](https://4kwallpapers.com/anime/anime-girl-15604.html)")
-
-st.markdown("""
-### ⚠️ Disclaimer
-We do not own any of the data presented here. The dataset used in this application was obtained from:
-- Kaggle: [Top 15000 Ranked Anime Dataset](https://www.kaggle.com/datasets/quanthan/top-15000-ranked-anime-dataset-update-to-32025)
-- The actual anime metadata originates from [MyAnimeList](https://myanimelist.net/), a widely-used anime catalog and community platform.
-
-This database is also not fully updated with the latest anime released. The cutoff period is Winter 2025.
-This database only displays the top 15,000 anime listed on MyAnimeList, as such anime ranked 15,001 and below are not listed here.
-""")
+""", height=1000)
 
 st.divider()
 
