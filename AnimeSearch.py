@@ -74,8 +74,7 @@ st.components.v1.html("""
         Try out our fun activities and discover potential anime to watch!</p>
 
         <h2>🤔 What is Anime?</h2>
-        <p><b>Anime</b> refers to a style of animation originating from Japan, characterized by colorful graphics, fantastical themes, and vibrant characters.
-        It spans a wide range of genres, from action and adventure to romance, horror, and slice-of-life.</p>
+        <p><b>Anime</b>is a distinctive style of animated entertainment that originated in Japan and has since gained widespread popularity across the globe. While often compared to Western animation, anime stands apart due to its unique artistic techniques, complex storytelling, cultural depth, and diverse genres. The word "anime" itself is derived from the English word "animation," but in Japan, it refers to all forms of animated media — not just Japanese productions.</p>
 
         <div style="margin-top: 2rem;">
             <img src="https://4kwallpapers.com/images/walls/thumbs_3t/15604.jpg" width="700px" style="border-radius: 8px;">
