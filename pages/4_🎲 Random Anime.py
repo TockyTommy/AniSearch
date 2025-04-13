@@ -15,6 +15,7 @@ df = df[df["image_url"].notna() & df["name"].notna()]
 
 # --- Title ---
 st.title("🎲 Random Anime Generator")
+st.write("Don't know where to start? Generate a random anime with these filters for a surprise!")
 
 # --- Anime Spin Form ---
 with st.form("spin_form"):
