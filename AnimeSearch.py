@@ -18,7 +18,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-
 def set_background(image_file):
     with open(image_file, "rb") as file:
         encoded = base64.b64encode(file.read()).decode()
@@ -62,7 +61,7 @@ st.markdown("""
     <p>Built by Anime lovers for anime lovers, this database allows users to explore, search, and receive recommendations based on anime content.<br>
     Try out our fun activities and discover potential anime to watch!</p>
 
-    <h3>🤔 What is Anime?</h3>
+    <h1>🤔 What is Anime?</h1>
     <p><b>Anime</b> refers to a style of animation originating from Japan, characterized by colorful graphics, fantastical themes, and vibrant characters.
     It spans a wide range of genres, from action and adventure to romance, horror, and slice-of-life.</p>
 </div>
@@ -73,11 +72,12 @@ st.markdown("**Source:** [4KWallpapers - Anime Girl](https://4kwallpapers.com/an
 
 st.markdown("""
 ### ⚠️ Disclaimer
-We do not own any of the data presented her. The dataset used in this application was obtained from:
+We do not own any of the data presented here. The dataset used in this application was obtained from:
 - Kaggle: [Top 15000 Ranked Anime Dataset](https://www.kaggle.com/datasets/quanthan/top-15000-ranked-anime-dataset-update-to-32025)
 - The actual anime metadata originates from [MyAnimeList](https://myanimelist.net/), a widely-used anime catalog and community platform.
 
 This database is also not fully updated with the latest anime released. The cutoff period is Winter 2025.
+This database only displays the top 15,000 anime listed on MyAnimeList, as such anime ranked 15,001 and below are not listed here.
 """)
 
 st.divider()
