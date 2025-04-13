@@ -74,7 +74,7 @@ st.components.v1.html("""
         font-size: 18px;
         margin-bottom: 2rem;
     ">
-        <h1 style='margin-top: 0;'>📚 AniSearch Database</h1>
+        
         <p>Welcome to the AniSearch Database Web App!</p>
         <p>Built by Anime lovers for anime lovers, this database allows users to explore, search, and receive recommendations based on anime content.<br>
         Try out our fun activities and discover potential anime to watch!</p>
