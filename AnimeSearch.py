@@ -72,7 +72,7 @@ st.components.v1.html("""
         <p><b>Anime</b> refers to a style of animation originating from Japan, characterized by colorful graphics, fantastical themes, and vibrant characters.
         It spans a wide range of genres, from action and adventure to romance, horror, and slice-of-life.</p>
     </div>
-""", height=300)
+""", height=600)
 
 
 st.image("anime-girl-3840x2160-15604.jpg", width=700)
