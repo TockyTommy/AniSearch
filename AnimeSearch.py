@@ -53,29 +53,27 @@ def load_data():
 df = load_data()
 
 # ----------------- MAIN PAGE CONTENT ----------------- #
-st.markdown("""
-<style>
-.intro-box {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 1.5rem;
-    border-radius: 10px;
-    color: white;
-    line-height: 1.6;
-    font-size: 18px;
-}
-</style>
+st.components.v1.html("""
+    <div style="
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 1.5rem;
+        border-radius: 10px;
+        color: white;
+        line-height: 1.6;
+        font-size: 18px;
+        margin-bottom: 2rem;
+    ">
+        <h1 style='margin-top: 0;'>📚 AniSearch Database</h1>
+        <p>Welcome to the AniSearch Database Web App!</p>
+        <p>Built by Anime lovers for anime lovers, this database allows users to explore, search, and receive recommendations based on anime content.<br>
+        Try out our fun activities and discover potential anime to watch!</p>
 
-<div class="intro-box">
-    <h1>📚 AniSearch Database</h1>
-    <p>Welcome to the AniSearch Database Web App!</p>
-    <p>Built by Anime lovers for anime lovers, this database allows users to explore, search, and receive recommendations based on anime content.<br>
-    Try out our fun activities and discover potential anime to watch!</p>
+        <h2>🤔 What is Anime?</h2>
+        <p><b>Anime</b> refers to a style of animation originating from Japan, characterized by colorful graphics, fantastical themes, and vibrant characters.
+        It spans a wide range of genres, from action and adventure to romance, horror, and slice-of-life.</p>
+    </div>
+""", height=300)
 
-    <h2>🤔 What is Anime?</h2>
-    <p><b>Anime</b> refers to a style of animation originating from Japan, characterized by colorful graphics, fantastical themes, and vibrant characters.
-    It spans a wide range of genres, from action and adventure to romance, horror, and slice-of-life.</p>
-</div>
-""", unsafe_allow_html=True)
 
 st.image("anime-girl-3840x2160-15604.jpg", width=700)
 st.markdown("**Source:** [4KWallpapers - Anime Girl](https://4kwallpapers.com/anime/anime-girl-15604.html)")
