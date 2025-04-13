@@ -6,6 +6,19 @@ import base64
 # Page setup
 st.set_page_config(page_title="Anime Database", layout="wide")
 
+st.markdown("""
+<style>
+.highlight-text {
+    background-color: rgba(0, 0, 0, 0.5); /* transparent black */
+    padding: 1.5rem;
+    border-radius: 10px;
+    color: white;
+    line-height: 1.6;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
 def set_background(image_file):
     with open(image_file, "rb") as file:
         encoded = base64.b64encode(file.read()).decode()
@@ -42,17 +55,18 @@ df = load_data()
 
 # ----------------- MAIN PAGE CONTENT ----------------- #
 
-st.title("📚 AniSearch Database")
 st.markdown("""
-Welcome to the AniSearch Database Web App!
+<div class="highlight-text">
+    <h1>📚 AniSearch Database</h1>
+    <p>Welcome to the AniSearch Database Web App!</p>
+    <p>Built by Anime lovers for anime lovers, this database allows users to explore, search, and receive recommendations based on anime content.<br>
+    Try out our fun activities and discover potential anime to watch!</p>
 
-Built by Anime lovers for anime lovers, this database allows users to explore, search, and receive recommendations based on anime content.  
-Try out our fun activities and discover potential anime to watch!
-
-### 🤔 What is Anime?
-**Anime** refers to a style of animation originating from Japan, characterized by colorful graphics, fantastical themes, and vibrant characters.  
-It spans a wide range of genres, from action and adventure to romance, horror, and slice-of-life.
-""")
+    <h3>🤔 What is Anime?</h3>
+    <p><b>Anime</b> refers to a style of animation originating from Japan, characterized by colorful graphics, fantastical themes, and vibrant characters.
+    It spans a wide range of genres, from action and adventure to romance, horror, and slice-of-life.</p>
+</div>
+""", unsafe_allow_html=True)
 
 st.image("anime-girl-3840x2160-15604.jpg", width=700)
 st.markdown("**Source:** [4KWallpapers - Anime Girl](https://4kwallpapers.com/anime/anime-girl-15604.html)")
