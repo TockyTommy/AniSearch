@@ -4,7 +4,7 @@ import pandas as pd
 from collections import Counter
 
 # --- MongoDB Connection ---
-client = MongoClient("mongodb+srv://streamlit:ligma@anime-cluster.tgb1j32.mongodb.net/?retryWrites=true&w=majorityy")
+client = MongoClient("mongodb+srv://streamlit:ligma@anime-cluster.tgb1j32.mongodb.net/?retryWrites=true&w=majority")
 db = client["AnimeDatabase"]
 collection = db["Anime"]
 df = pd.DataFrame(collection.find())
