@@ -74,13 +74,15 @@ st.components.v1.html("""
         Try out our fun activities and discover potential anime to watch!</p>
 
         <h2>🤔 What is Anime?</h2>
-        <p><b>Anime</b>is a distinctive style of animated entertainment that originated in Japan and has since gained widespread popularity across the globe. While often compared to Western animation, anime stands apart due to its unique artistic techniques, complex storytelling, cultural depth, and diverse genres. The word "anime" itself is derived from the English word "animation," but in Japan, it refers to all forms of animated media — not just Japanese productions.</p>
+        <p><b>Anime</b> is a distinctive style of animated entertainment that originated in Japan and has since gained widespread popularity across the globe. While often compared to Western animation, anime stands apart due to its unique artistic techniques, complex storytelling, cultural depth, and diverse genres. The word "anime" itself is derived from the English word "animation," but in Japan, it refers to all forms of animated media — not just Japanese productions.</p>
 
         <div style="margin-top: 2rem;">
             <img src="https://4kwallpapers.com/images/walls/thumbs_3t/15604.jpg" width="700px" style="border-radius: 8px;">
             <p style="margin-top: 0.5rem;"><b>Source:</b> <a href="https://4kwallpapers.com/anime/anime-girl-15604.html" style="color: lightblue;" target="_blank">4KWallpapers - Anime Girl</a></p>
         </div>
 
+        <p>What makes anime particularly appealing is its ability to tackle a wide range of themes — from lighthearted adventures and romantic comedies to philosophical dramas, science fiction epics, psychological thrillers, and gritty tales of war and survival. Some anime are aimed at children, while others are crafted specifically for teenagers or adults, making it an incredibly versatile form of media that caters to various age groups and interests.</p>
+        
         <h3 style="margin-top: 2rem;">⚠️ Disclaimer</h3>
         <p>We do not own any of the data presented here. The dataset used in this application was obtained from:</p>
         <ul>
