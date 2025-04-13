@@ -77,7 +77,6 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-
 st.image("anime-girl-3840x2160-15604.jpg", width=700)
 st.markdown("**Source:** [4KWallpapers - Anime Girl](https://4kwallpapers.com/anime/anime-girl-15604.html)")
 
