@@ -7,7 +7,7 @@ import base64
 st.set_page_config(page_title="Anime Database", layout="wide")
 
 st.image(
-    "https://cdn.discordapp.com/attachments/1256945378562019360/1360866667651006474/AnineSearch_Banner.png?ex=67fcad59&is=67fb5bd9&hm=61d776d38d2dfa7edd1336addba81d5a109e0cfd4ebcac32b12819befab521b2&",
+    "https://cdn.discordapp.com/attachments/1256945378562019360/1360869063982841927/AnineSearch_Banner2.png?ex=67fcaf94&is=67fb5e14&hm=1b03efe0fb2d46b7db8de86e586bd286f55695d5088b220abf25a082ec094953&",
     caption="",
     use_container_width=True
 )
