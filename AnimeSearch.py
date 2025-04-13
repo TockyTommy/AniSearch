@@ -8,15 +8,20 @@ st.set_page_config(page_title="Anime Database", layout="wide")
 
 st.markdown("""
 <style>
-.highlight-text {
-    background-color: rgba(0, 0, 0, 0.5); /* transparent black */
-    padding: 1.5rem;
-    border-radius: 10px;
-    color: white;
-    line-height: 1.6;
+/* Full-page dark transparent overlay */
+.stApp::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);  /* adjust the opacity here */
+    z-index: -1;
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 def set_background(image_file):
     with open(image_file, "rb") as file:
