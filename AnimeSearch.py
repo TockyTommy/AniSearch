@@ -87,7 +87,7 @@ st.components.v1.html("""
             <img src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/04/oshi-no-oko.jpg?q=50&fit=crop&w=1140&h=&dpr=1.5"
                  width="700px"
                  style="border-radius: 8px;">
-            <p style="margin-top: 0.5rem;"><b>Source:</b> <a href="https://www.cbr.com/oshi-no-ko-anime-facts/" style="color: lightblue;" target="_blank">CBR - Oshi no Ko</a></p>
+            <p style="margin-top: 0.5rem;"><b>Source:</b> <a href="https://www.cbr.com/oshi-no-ko-most-overrated-anime-spring-2023/" style="color: lightblue;" target="_blank">CBR - Oshi no Ko</a></p>
         </div>
 
         
