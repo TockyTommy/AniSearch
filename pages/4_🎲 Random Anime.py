@@ -4,13 +4,31 @@ import time
 from pymongo import MongoClient
 import pandas as pd
 
-# --- MongoDB Connection ---
-client = MongoClient("mongodb+srv://streamlit:ligma@anime-cluster.tgb1j32.mongodb.net/?retryWrites=true&w=majority")
-db = client["AnimeDatabase"]
-collection = db["Anime"]
+# --- Page Setup ---
+st.set_page_config(page_title="🎲 Random Anime Generator", layout="wide")
 
-# --- Load All Anime Once ---
-df = pd.DataFrame(collection.find())
+# --- MongoDB Connection with Caching ---
+@st.cache_data
+def load_anime_data():
+    try:
+        client = MongoClient("mongodb+srv://streamlit:ligma@anime-cluster.tgb1j32.mongodb.net/?retryWrites=true&w=majority")
+        db = client["AnimeDatabase"]
+        collection = db["Anime"]
+        data = list(collection.find())
+        return data
+    except Exception as e:
+        st.error(f"❌ Failed to connect to MongoDB: {e}")
+        return []
+
+# --- Load and Clean Data ---
+anime_data = load_anime_data()
+if not anime_data:
+    st.stop()
+
+df = pd.DataFrame(anime_data)
+if "_id" in df.columns:
+    df.drop(columns=["_id"], inplace=True)
+
 df = df[df["image_url"].notna() & df["name"].notna()]
 
 # --- Title ---
@@ -22,7 +40,8 @@ with st.form("spin_form"):
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        selected_genre = st.selectbox("🎭 Genre", options=["Any"] + sorted(set(g.strip() for sublist in df["genres"].dropna().str.split(",") for g in sublist)))
+        genres = sorted(set(g.strip() for sublist in df["genres"].dropna().str.split(",") for g in sublist))
+        selected_genre = st.selectbox("🎭 Genre", options=["Any"] + genres)
 
     with col2:
         selected_type = st.selectbox("📺 Type", options=["Any"] + sorted(df["type"].dropna().unique()))
@@ -30,10 +49,9 @@ with st.form("spin_form"):
     with col3:
         selected_rating = st.selectbox("🔞 Rating", options=["Any"] + sorted(df["rating"].dropna().unique()))
 
-    # Submit button for the form
     spin = st.form_submit_button("🔄 Spin!")
 
-# --- Filtering Logic (only applied when form is submitted) ---
+# --- Filtering Logic ---
 if spin:
     filtered_df = df.copy()
 
@@ -60,11 +78,11 @@ if spin:
         st.markdown(
             f"""
             <div style='text-align: center;'>
-                <img src="{temp_anime["image_url"]}" width="500"><br><br>
+                <img src="{temp_anime.get("image_url", "")}" width="500"><br><br>
                 <h3>Japanese Name</h3>
-                <p style='font-size:20px;'><strong>{temp_anime["japanese_names"] or 'N/A'}</strong></p><br>
+                <p style='font-size:20px;'><strong>{temp_anime.get("japanese_names", "N/A")}</strong></p><br>
                 <h3>English Name</h3>
-                <p style='font-size:20px;'><strong>{temp_anime["english_name"] or temp_anime["name"]}</strong></p>
+                <p style='font-size:20px;'><strong>{temp_anime.get("english_name") or temp_anime.get("name")}</strong></p>
             </div>
             """,
             unsafe_allow_html=True
