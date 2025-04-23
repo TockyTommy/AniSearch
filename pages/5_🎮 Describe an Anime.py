@@ -7,8 +7,7 @@ import pymongo
 st.set_page_config(page_title="🎮 Describe an Anime", layout="wide")
 
 # MongoDB setup
-MONGO_URI = st.secrets["mongodb"]["uri"]
-client = pymongo.MongoClient(MONGO_URI)
+client = MongoClient("mongodb+srv://streamlit:ligma@anime-cluster.tgb1j32.mongodb.net/?retryWrites=true&w=majority")
 db = client["AnimeDatabase"]
 collection = db["Anime"]
 
